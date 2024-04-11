@@ -69,7 +69,7 @@ const ExpenseForm = (props) => {
         <option value="clothes">Clothes</option>
         <option value="other">Other</option>
       </select>
-      <button type="submit" className="submit-button">Add Expense</button>
+      <button type="submit" className={styles['submit-button']}>Add Expense</button>
       {errorMessage && <p className={styles['error-message']}>{errorMessage}</p>}
     </form>
   );

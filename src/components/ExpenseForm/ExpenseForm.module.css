@@ -7,7 +7,7 @@
  .input-field {
 	margin-bottom: 10px;
 	padding: 8px;
-	border: 1px solid #ddd;
+	border: 1px solid #dddddd;
 	border-radius: 4px;
  }
  
@@ -21,5 +21,5 @@
  }
  
  .error-message {
-	color: red;
+	color: darkred;
  }

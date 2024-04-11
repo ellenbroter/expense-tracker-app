@@ -6,7 +6,7 @@
  
  .expense-table th,
  .expense-table td {
-	border: 1px solid #ddd;
+	border: 1px solid #dddddd;
 	padding: 8px;
 	text-align: left;
  }
