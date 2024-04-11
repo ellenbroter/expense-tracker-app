@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import styles from './ExpenseForm.module.css'
+
 
 const ExpenseForm = (props) => {
   const [title, setTitle] = useState('');
@@ -11,7 +13,7 @@ const ExpenseForm = (props) => {
     event.preventDefault();
 
     if (title.trim().length === 0 || amount.trim().length === 0 || date.trim().length === 0) {
-      setErrorMessage('Please fill out all mandatory fields.');
+      setErrorMessage('Please fill out all fields.');
       return;
     }
 
@@ -33,26 +35,33 @@ const ExpenseForm = (props) => {
   };
 
   return (
-    <form onSubmit={submitHandler}>
+    <form onSubmit={submitHandler} className={styles['expense-form']}>
       <input
         type="text"
         placeholder="Title"
         value={title}
         onChange={(e) => setTitle(e.target.value)}
+        className={styles['input-field']}
       />
       <input
         type="number"
         placeholder="Amount"
         value={amount}
         onChange={(e) => setAmount(e.target.value)}
+        className={styles['input-field']}
       />
       <input
         type="date"
         placeholder="Date"
         value={date}
         onChange={(e) => setDate(e.target.value)}
+        className={styles['input-field']}
       />
-      <select value={category} onChange={(e) => setCategory(e.target.value)}>
+      <select
+        value={category}
+        onChange={(e) => setCategory(e.target.value)}
+        className={styles['input-field']}
+      >
         <option value="">Select Category</option>
         <option value="housing">Housing</option>
         <option value="grocery">Grocery</option>
@@ -60,8 +69,8 @@ const ExpenseForm = (props) => {
         <option value="clothes">Clothes</option>
         <option value="other">Other</option>
       </select>
-      <button type="submit">Add Expense</button>
-      {errorMessage && <p style={{ color: 'red' }}>{errorMessage}</p>}
+      <button type="submit" className="submit-button">Add Expense</button>
+      {errorMessage && <p className={styles['error-message']}>{errorMessage}</p>}
     </form>
   );
 };
