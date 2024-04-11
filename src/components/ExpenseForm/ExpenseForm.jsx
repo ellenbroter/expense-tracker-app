@@ -29,7 +29,7 @@ const ExpenseForm = (props) => {
     setAmount('');
     setDate('');
     setCategory('');
-	 setErrorMessage('');
+    setErrorMessage('');
   };
 
   return (
@@ -61,7 +61,7 @@ const ExpenseForm = (props) => {
         <option value="other">Other</option>
       </select>
       <button type="submit">Add Expense</button>
-		{errorMessage && <p style={{ color: 'red' }}>{errorMessage}</p>}
+      {errorMessage && <p style={{ color: 'red' }}>{errorMessage}</p>}
     </form>
   );
 };
