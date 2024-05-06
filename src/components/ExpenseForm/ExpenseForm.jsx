@@ -1,6 +1,5 @@
-import React, { useState } from 'react';
-import styles from './ExpenseForm.module.css'
-
+import React, { useState, useRef } from 'react';
+import styles from './ExpenseForm.module.css';
 
 const ExpenseForm = (props) => {
   const [title, setTitle] = useState('');
@@ -8,6 +7,7 @@ const ExpenseForm = (props) => {
   const [date, setDate] = useState('');
   const [category, setCategory] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
+  const titleInputRef = useRef(null);
 
   const submitHandler = (event) => {
     event.preventDefault();
@@ -32,6 +32,7 @@ const ExpenseForm = (props) => {
     setDate('');
     setCategory('');
     setErrorMessage('');
+    titleInputRef.current.focus();
   };
 
   return (
@@ -42,6 +43,7 @@ const ExpenseForm = (props) => {
         value={title}
         onChange={(e) => setTitle(e.target.value)}
         className={styles['input-field']}
+        ref={titleInputRef}
       />
       <input
         type="number"
@@ -69,7 +71,9 @@ const ExpenseForm = (props) => {
         <option value="clothes">Clothes</option>
         <option value="other">Other</option>
       </select>
-      <button type="submit" className={styles['submit-button']}>Add Expense</button>
+      <button type="submit" className={styles['submit-button']}>
+        Add Expense
+      </button>
       {errorMessage && <p className={styles['error-message']}>{errorMessage}</p>}
     </form>
   );
