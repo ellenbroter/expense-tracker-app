@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import './App.css'
+import ChangePageTitle from "./components/ChangePageTitle/ChangePageTitle";
 import ExpenseForm from './components/ExpenseForm/ExpenseForm';
 import ExpenseList from './components/ExpenseList/ExpenseList';
 
@@ -19,11 +20,14 @@ const App = () => {
   };
 
   return (
-    <div>
-      <h1>Expense Tracker</h1>
-      <ExpenseForm onAddExpense={addExpenseHandler} />
-      <ExpenseList items={expenses} onDeleteExpense={deleteExpenseHandler} />
-    </div>
+    <>
+      <ChangePageTitle pageTitle="Expense Tracker" />
+      <div>
+        <h1>Expense Tracker</h1>
+        <ExpenseForm onAddExpense={addExpenseHandler} />
+        <ExpenseList items={expenses} onDeleteExpense={deleteExpenseHandler} />
+      </div>
+    </>
   );
 };
 
