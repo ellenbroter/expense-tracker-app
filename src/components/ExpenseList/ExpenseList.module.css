@@ -2,15 +2,23 @@
 	width: 100%;
 	border-collapse: collapse;
 	margin-bottom: 20px;
- }
- 
- .expense-table th,
- .expense-table td {
+}
+
+.expense-table th,
+.expense-table td {
 	border: 1px solid #dddddd;
 	padding: 8px;
 	text-align: left;
- }
- 
- .expense-table th {
+}
+
+.expense-table th {
 	background-color: #f2f2f2;
- }
+}
+
+@media only screen and (max-width: 600px) {
+	.expense-table th,
+	.expense-table td {
+		padding: 6px;
+		font-size: 12px;
+	}
+}

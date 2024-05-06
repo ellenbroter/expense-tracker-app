@@ -13,3 +13,13 @@ body{
   background-repeat: no-repeat;
   background-attachment: fixed;
 }
+
+h1 {
+  font-size: 34px;
+}
+
+@media only screen and (max-width: 600px) {
+  h1 {
+    font-size: 12px;
+  }
+}
