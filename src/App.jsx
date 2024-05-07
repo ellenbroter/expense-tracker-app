@@ -1,22 +1,29 @@
-import { useState } from 'react'
-import './App.css'
-import ChangePageTitle from "./components/ChangePageTitle/ChangePageTitle";
+import React, { useState, useEffect } from 'react';
+import './App.css';
+import ChangePageTitle from './components/ChangePageTitle/ChangePageTitle';
 import ExpenseForm from './components/ExpenseForm/ExpenseForm';
 import ExpenseList from './components/ExpenseList/ExpenseList';
 
 const App = () => {
   const [expenses, setExpenses] = useState([]);
 
+  useEffect(() => {
+    const storedExpenses = JSON.parse(localStorage.getItem('expenses'));
+    if (storedExpenses) {
+      setExpenses(storedExpenses);
+    }
+  }, []);
+
   const addExpenseHandler = (expense) => {
-    setExpenses((prevExpenses) => {
-      return [...prevExpenses, expense];
-    });
+    const updatedExpenses = [...expenses, expense];
+    setExpenses(updatedExpenses);
+    localStorage.setItem('expenses', JSON.stringify(updatedExpenses));
   };
 
   const deleteExpenseHandler = (expenseId) => {
-    setExpenses((prevExpenses) => {
-      return prevExpenses.filter((expense) => expense.id !== expenseId);
-    });
+    const updatedExpenses = expenses.filter((expense) => expense.id !== expenseId);
+    setExpenses(updatedExpenses);
+    localStorage.setItem('expenses', JSON.stringify(updatedExpenses));
   };
 
   return (
