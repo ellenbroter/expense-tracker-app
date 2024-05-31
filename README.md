@@ -18,7 +18,7 @@ Check out the project: https://expense-tracker-byellen.netlify.app/
 - LocalStorage for data persistence
 
 ## Image Credits
-All images used in this project are sourced from Unsplash and Pexels.
+All images used in this project are sourced from [Pexels](https://www.pexels.com).
 
 ## Acknowledgments
 Special thanks to the developers of Vite and React for providing the tools and frameworks that made this project possible.
